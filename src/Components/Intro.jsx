@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import women from "../images/women2.png";
+import AnimatedShapes from "./AnimatedShapes";
 
 const Container = styled.div`
   height: calc(100vh-50px);
@@ -11,6 +13,8 @@ const Left = styled.div`
   width: 60%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Right = styled.div`
@@ -28,8 +32,42 @@ const Desc = styled.p`
   margin-top: 20px;
 `;
 
-const Ri = styled.div`
-  width: 40%;
+const Info = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+`;
+
+const Button = styled.button`
+  padding: 15px;
+  background-color: darkblue;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+`;
+
+const Contact = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Phone = styled.span`
+  color: #f0667d;
+  font-weight: bold;
+`;
+
+const ContactText = styled.span`
+  color: gray;
+  margin-top: 5px;
+`;
+
+const Image = styled.img`
+  width: 100%;
 `;
 
 function Intro(props) {
@@ -42,8 +80,19 @@ function Intro(props) {
           with our clients is the only way to have a real impact on their
           business
         </Desc>
+        <Info>
+          <Button>START A PROJECT</Button>
+
+          <Contact>
+            <Phone> Call Us (012) 345 - 6789</Phone>
+            <ContactText>For any quection or concern</ContactText>
+          </Contact>
+        </Info>
       </Left>
-      <Right>r</Right>
+      <Right>
+        <Image src={women} />
+      </Right>
+      <AnimatedShapes />
     </Container>
   );
 }
