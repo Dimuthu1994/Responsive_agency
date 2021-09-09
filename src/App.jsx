@@ -1,10 +1,19 @@
+import styled from "styled-components";
+import Intro from "./Components/Intro";
+import Navbar from "./Components/Navbar";
 
+
+const Container = styled.div`
+height: 100vh;
+
+`;
 
 function App() {
   return (
-    <div >
-      <h1>Hello</h1>
-    </div>
+    <Container >
+      <Navbar/>
+      <Intro/>
+    </Container>
   );
 }
 
