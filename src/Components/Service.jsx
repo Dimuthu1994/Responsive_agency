@@ -6,11 +6,19 @@ import Play from "../images/play.png";
 
 const Container = styled.div`
   display: flex;
+  height: 100%;
+  @media only screen and (max-width: 480px) {
+    flex-direction: column;
+  }
 `;
 
 const Left = styled.div`
   width: 50%;
   position: relative;
+
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
 `;
 
 const Image = styled.img`
@@ -21,12 +29,19 @@ const Image = styled.img`
 
 const Right = styled.div`
   width: 50%;
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 480px) {
+    padding: 20px;
+  }
 `;
 
 const Title = styled.h1``;
@@ -62,6 +77,14 @@ const Icon = styled.img`
   margin-right: 10px;
 `;
 
+const Modal = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
 const Video = styled.video`
   display: ${({ open }) => !open && "none"};
   height: 300px;
@@ -70,9 +93,24 @@ const Video = styled.video`
   bottom: 0;
   margin: auto;
   right: 0;
+
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+  }
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  right: 5px;
+  top: 30%;
 `;
 
 function Service(props) {
+  const smallScreen = window.screen.width <= 480 ? true : false;
   const [open, setOpen] = useState(false);
   return (
     <Container>
@@ -107,6 +145,18 @@ function Service(props) {
           </Button>
         </Wrapper>
       </Right>
+      {smallScreen && open && (
+        <Modal>
+          <Video
+            open={open}
+            src="https://youtu.be/trBvk37e1iw"
+            autoPlay
+            loop
+            controls
+          />
+          <CloseButton onClick={() => setOpen(false)}>close</CloseButton>
+        </Modal>
+      )}
     </Container>
   );
 }

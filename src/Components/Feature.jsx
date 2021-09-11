@@ -5,10 +5,19 @@ import AnimatedShapes from "./AnimatedShapes";
 
 const Container = styled.div`
   display: flex;
+
+  @media only screen and (max-width: 480px) {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
 `;
 
 const Left = styled.div`
   width: 50%;
+
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
 `;
 
 const Right = styled.div`
@@ -16,6 +25,10 @@ const Right = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const Img = styled.img`
@@ -24,6 +37,10 @@ const Img = styled.img`
 
 const Title = styled.div`
   font-size: 70px;
+
+  @media only screen and (max-width: 480px) {
+    font-size: 50px;
+  }
 `;
 
 const Subtitle = styled.div`

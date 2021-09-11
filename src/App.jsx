@@ -3,6 +3,9 @@ import Feature from "./Components/Feature";
 import Intro from "./Components/Intro";
 import Navbar from "./Components/Navbar";
 import Service from "./Components/Service";
+import Price from "./Components/Price";
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 
 const Container = styled.div`
   height: 100vh;
@@ -37,7 +40,14 @@ const ServiceShape = styled.div`
   background-color: #f88497;
 `;
 
+const PriceShape = styled.div`
+  ${Shape}
+  clip-path: polygon(41% 0, 100% 0%, 100% 100%, 67% 100%);
+  background-color: crimson;
+`;
+
 function App() {
+  const smallScreen = window.screen.width <= 480 ? true : false;
   return (
     <>
       <Container>
@@ -53,7 +63,17 @@ function App() {
 
       <Container>
         <Service />
-        <ServiceShape />
+        {!smallScreen && <ServiceShape />}
+      </Container>
+
+      <Container>
+        <Price />
+        <PriceShape />
+      </Container>
+
+      <Container>
+        <Contact />
+        <Footer />
       </Container>
     </>
   );
